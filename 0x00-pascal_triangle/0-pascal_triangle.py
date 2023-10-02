@@ -3,6 +3,13 @@
 
 
 def pascal_triangle(n):
+    """
+    pascal_trianle: returns a list of numbers
+
+    Args:
+        n(integer): input
+    """
+
     pascal = []
     if n <= 0:
         return pascal
