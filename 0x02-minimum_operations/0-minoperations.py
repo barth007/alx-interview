@@ -1,30 +1,25 @@
 #!/usr/bin/python3
 """
-Author: Iberedem Inyang
-this file defines an interview test question
-given a copy and paste scenario
 """
+import pyperclip
 
 
 def minOperations(n):
-    """the main function"""
-    if not isinstance(n, int):
-        return 0
-    ops_count = 0
-    clipboard = 0
-    done = 1
-    # print('H', end='')
-    while done < n:
-        if clipboard == 0:
-            clipboard = done
-            done += clipboard
-            ops_count += 2
-        elif n - done > 0 and (n - done) % done == 0:
-            clipboard = done
-            done += clipboard
-            ops_count += 2
-        elif clipboard > 0:
-            done += clipboard
-            ops_count += 1
+    """
+    """
 
-    return ops_count
+    initial_text = "H"
+    number_of_opp = 0
+    while  len(initial_text) <= n:
+        if len(initial_text) != n:
+            #Copy All
+            pyperclip.copy(initial_text)
+            number_of_opp += 1
+            pastes_chars = pyperclip.paste()
+            initial_text += pastes_chars
+            number_of_opp += 1
+    return number_of_opp
+
+        
+
+minOperations(3)
