@@ -11,9 +11,8 @@ def validUTF8(data):
     """
 
     try:
-        for d in data:
-            byte_string = bytes(d)
-            decoded_text = byte_string.decode('utf-8')
-            return True
-    except UnicodeDecodeError:
+        byte_string = bytes(data)
+        decoded_text = byte_string.decode('utf-8')
+        return True
+    except ValueError:
         return False
